@@ -1,48 +1,267 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hoja de Vida - German David Moncaleano</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #f5f5f5;
-      color: #333;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f7f7f9;
+      color: #222;
+      display: flex;
     }
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .sidebar {
+      width: 280px;
+      background: #1a2233;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px;
+      min-height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
     }
-    h1 {
-      color: #0066cc;
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 60px;
+      border: 3px solid #30a7d7;
+      margin-bottom: 20px;
     }
-    h3 {
-      margin-top: 0;
-      color: #444;
+    .sidebar h2 {
+      margin: 8px 0 4px 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
-    .contacto a {
-      color: #0066cc;
-      text-decoration: none;
+    .sidebar .bio {
+      font-size: 0.97rem;
+      color: #e2e2e2;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .sidebar .menu-btn {
+      background: #263656;
+      color: #fff;
+      border: none;
+      margin: 6px 0;
+      padding: 10px 18px;
+      width: 90%;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-align: left;
+    }
+    .sidebar .menu-btn:hover, .sidebar .menu-btn.active {
+      background: #30a7d7;
+      color: #1a2233;
+    }
+    .main-content {
+      margin-left: 280px;
+      padding: 36px 8% 36px 8%;
+      width: 100%;
+      min-height: 100vh;
+      background: #f7f7f9;
+      transition: all 0.3s;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      margin: 24px 0 0 24px;
+      padding-left: 28px;
+      border-left: 3px solid #30a7d7;
+      max-width: 680px;
+    }
+    .timeline-item {
+      margin-bottom: 36px;
+      cursor: pointer;
+      position: relative;
+    }
+    .timeline-item .circle {
+      position: absolute;
+      left: -38px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border: 3px solid #30a7d7;
+      border-radius: 8px;
+      z-index: 2;
+      transition: background 0.2s;
+    }
+    .timeline-item.open .circle {
+      background: #30a7d7;
+    }
+    .timeline-title {
+      font-weight: bold;
+      font-size: 1.08rem;
+      margin-bottom: 3px;
+    }
+    .timeline-date {
+      font-size: 0.92rem;
+      color: #888;
+      margin-bottom: 7px;
+    }
+    .timeline-desc {
+      display: none;
+      background: #e6f4fa;
+      padding: 16px 16px 12px 16px;
+      border-radius: 8px;
+      margin-top: 7px;
+    }
+    .timeline-item.open .timeline-desc {
+      display: block;
+      animation: fadeIn 0.4s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 800px) {
+      .sidebar { width: 100vw; min-height: auto; flex-direction: row; position: relative; padding: 16px 2vw;}
+      .sidebar img { width: 70px; height: 70px; border-radius: 35px;}
+      .main-content { margin-left: 0; padding: 24px 4vw; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>German David Moncaleano Velasquez</h1>
-    <h3>Especialista en BI & WFM</h3>
-    <p>Profesional empírico con sólida experiencia en análisis de datos, automatización de procesos y generación de reportes estratégicos en entornos de operación.</p>
-    <p>Especializado en Power BI, SQL Server, Python, Excel y VBA para transformar datos en decisiones. Enfocado en la eficiencia operativa mediante soluciones automatizadas y visualizaciones dinámicas que aportan valor real al negocio.</p>
-
-    <p class="contacto">
-      📧 Correo: <a href="mailto:davidmoncaleano13@gmail.com">davidmoncaleano13@gmail.com</a><br />
-      💼 LinkedIn: <a href="https://www.linkedin.com/in/german-david-moncaleano-velasquez-11539b137/" target="_blank">Mi perfil</a>
-    </p>
+  <div class="sidebar">
+    <!-- Foto (pon el link directo a tu foto de GitHub aquí abajo) -->
+    <img src="https://avatars.githubusercontent.com/u/60127731?v=4" alt="German David Moncaleano" />
+    <h2>German David Moncaleano</h2>
+    <div class="bio">
+      Especialista en BI y WFM | Power BI, SQL, Python, Excel | Automatización y análisis estratégico de datos
+    </div>
+    <button class="menu-btn active" onclick="showSection('sobre-mi')">Sobre mí</button>
+    <button class="menu-btn" onclick="showSection('experiencia')">Experiencia laboral</button>
+    <button class="menu-btn" onclick="showSection('ruta-aprendizaje')">Ruta de aprendizaje</button>
+    <button class="menu-btn" onclick="showSection('proyectos')">Proyectos</button>
+    <button class="menu-btn" onclick="showSection('opiniones')">Opiniones</button>
+    <button class="menu-btn" onclick="showSection('contacto')">Contacto</button>
   </div>
+
+  <div class="main-content">
+    <!-- SOBRE MÍ -->
+    <div class="section active" id="sobre-mi">
+      <h1>Sobre mí</h1>
+      <p>
+        Soy German David Moncaleano, un apasionado por los datos, la eficiencia y el aprendizaje constante.<br>
+        Más que un empleado, me considero una mano derecha para la organización: alguien comprometido con entender a fondo cómo funciona una operación, proponer mejoras reales y convertir los datos en decisiones inteligentes.<br>
+        Me he formado de manera empírica, lo que me ha enseñado a resolver problemas desde lo práctico, con herramientas como Power BI, SQL Server, Python, Excel y VBA. No solo aprendo rápido, sino que disfruto compartir lo que aprendo para que otros también crezcan.<br>
+        Estoy entregado al crecimiento profesional, siempre buscando aprender algo nuevo y aportar más valor. Mi motivación no es cumplir tareas, sino construir soluciones que realmente hagan la diferencia.
+      </p>
+    </div>
+
+    <!-- EXPERIENCIA LABORAL (TIMELINE) -->
+    <div class="section" id="experiencia">
+      <h1>Experiencia laboral</h1>
+      <div class="timeline">
+        <div class="timeline-item" onclick="toggleItem(this)">
+          <div class="circle"></div>
+          <div class="timeline-title">🏢 Teleperformance — Analista WFM Jr.</div>
+          <div class="timeline-date">Octubre 2017 – Noviembre 2022</div>
+          <div class="timeline-desc">
+            <strong>Qué hacía:</strong><br>
+            Encargado de asegurar la correcta adherencia de los recursos operativos a las curvas de llamadas, garantizando el cumplimiento de los niveles de servicio según los lineamientos establecidos.<br>
+            Realicé dimensionamientos para líneas inbound y outbound, desde la estimación de personal requerido hasta su distribución operativa.<br>
+            Mi rol no se limitaba a calcular cifras: también era responsable de hacer seguimiento constante al resultado, anticipando desvíos y tomando acciones para cumplir las metas del negocio.<br>
+            <br>
+            <strong>Lo que me dejó esta experiencia:</strong><br>
+            <!-- Aquí puedes agregar tu reflexión personal luego -->
+            <em>(Agrega aquí tu reflexión personal)</em>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="toggleItem(this)">
+          <div class="circle"></div>
+          <div class="timeline-title">🏢 Americas PBS — Analista de Planeación y Pronóstico WFM</div>
+          <div class="timeline-date">Agosto 2023 – Diciembre 2023</div>
+          <div class="timeline-desc">
+            <strong>Qué hacía:</strong><br>
+            Responsable de los procesos de dimensionamiento y planificación operativa para múltiples canales de atención, incluyendo voz inbound y outbound, chats, correos y atención presencial.<br>
+            El rol exigía un enfoque más especializado en proyecciones y cálculo de recursos, considerando particularidades operativas por canal y modelo de servicio.<br>
+            Diseñaba modelos de pronóstico y estimación de carga para servicios tradicionales y digitales, adaptando estrategias de distribución del personal según el comportamiento esperado.<br>
+            <br>
+            <strong>Lo que me dejó esta experiencia:</strong><br>
+            <em>(Agrega aquí tu reflexión personal)</em>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="toggleItem(this)">
+          <div class="circle"></div>
+          <div class="timeline-title">🏢 Aprende Institute — Analista Senior de Dimensionamiento</div>
+          <div class="timeline-date">Diciembre 2023 – Febrero 2024</div>
+          <div class="timeline-desc">
+            <strong>Qué hacía:</strong><br>
+            Fui convocado para apoyar la estructuración del área de WFM, enfocándome en el desarrollo de modelos de dimensionamiento y planificación operativa adaptados a un entorno educativo digital.<br>
+            El enfoque del área radicaba en anticipar la demanda laboral y los recursos requeridos. Este proceso implicaba el análisis de patrones históricos, tendencias y otros factores para proyectar la carga laboral futura.<br>
+            El objetivo principal era garantizar la disponibilidad adecuada de recursos (personal, tiempo, etc.) para gestionar eficazmente la carga de trabajo y ofrecer un servicio de alta calidad.<br>
+            <br>
+            <strong>Lo que me dejó esta experiencia:</strong><br>
+            <em>(Agrega aquí tu reflexión personal)</em>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="toggleItem(this)">
+          <div class="circle"></div>
+          <div class="timeline-title">🏢 Americas PBS — Especialista BI Cobranzas</div>
+          <div class="timeline-date">Marzo 2024 – Actualidad</div>
+          <div class="timeline-desc">
+            <strong>Qué hago:</strong><br>
+            Asumo un rol estratégico como soporte directo para la dirección y jefatura operativa del área de cobranzas, brindando soluciones desde el análisis de datos y la automatización de procesos.<br>
+            Mi responsabilidad comienza desde la recepción y validación de las asignaciones entregadas por el cliente, las cuales transformo en insumos operativos listos para gestión (voicebot, contactabilidad telefónica outbound, etc.).<br>
+            Además, soy responsable de la generación de reportes, seguimiento de resultados, conexión del personal, control de calidad de insumos, soporte en facturación, proyecciones de ingresos y atención directa al cliente para garantizar integridad y utilidad de la información entregada.<br>
+            También lidero iniciativas de automatización que han permitido optimizar procesos operativos manuales, mejorar la eficiencia y liberar carga administrativa a la operación.<br>
+            <br>
+            <strong>Lo que me deja esta experiencia:</strong><br>
+            <em>(Agrega aquí tu reflexión personal)</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Las otras secciones tienen solo títulos, luego se pueden editar/agregar -->
+    <div class="section" id="ruta-aprendizaje">
+      <h1>Ruta de aprendizaje</h1>
+      <p>(Aquí podrás contar tu evolución, cursos, certificaciones, cambios de enfoque, etc.)</p>
+    </div>
+    <div class="section" id="proyectos">
+      <h1>Proyectos</h1>
+      <p>(Espacio para destacar proyectos BI, automatizaciones, informes, etc.)</p>
+    </div>
+    <div class="section" id="opiniones">
+      <h1>Opiniones / Blog</h1>
+      <p>(Aquí puedes escribir reflexiones, aprendizajes, casos de éxito o retos personales)</p>
+    </div>
+    <div class="section" id="contacto">
+      <h1>Contacto</h1>
+      <p>Puedes escribirme a: <a href="mailto:davidmoncaleano13@gmail.com">davidmoncaleano13@gmail.com</a></p>
+      <p>O en <a href="https://www.linkedin.com/in/german-david-moncaleano-velasquez-11539b137/" target="_blank">LinkedIn</a></p>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      // Quita activo a todos los botones
+      document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
+      // Agrega activo al botón clickeado
+      const idx = ['sobre-mi','experiencia','ruta-aprendizaje','proyectos','opiniones','contacto'].indexOf(id);
+      if (idx !== -1) document.querySelectorAll('.menu-btn')[idx].classList.add('active');
+
+      // Muestra solo la sección elegida
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0,0);
+    }
+    // Timeline interactivo
+    function toggleItem(item) {
+      item.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
