@@ -39,10 +39,11 @@
     }
     .sidebar h2 {
       margin: 8px 0 4px 0;
-      font-size: 1.32rem;
+      font-size: 1.38rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-align: center;
+      white-space: nowrap;
     }
     .sidebar .bio {
       font-size: 0.97rem;
@@ -61,11 +62,16 @@
       align-items: center;
       gap: 8px;
       color: #cfe8fc;
+      word-break: break-all;
     }
     .sidebar .contact-info a {
       color: #70d6ff;
       text-decoration: none;
       word-break: break-all;
+    }
+    .sidebar .contact-info .phone a {
+      color: #70ff90;
+      font-weight: bold;
     }
     .main-content {
       margin-left: 280px;
@@ -93,6 +99,7 @@
       margin-top: 14px;
       margin-bottom: 7px;
     }
+    /* Timeline (Experiencia laboral) */
     .timeline {
       margin-left: 12px;
       border-left: 3px solid #30a7d7;
@@ -101,6 +108,10 @@
     .timeline-item {
       margin-bottom: 38px;
       position: relative;
+      cursor: pointer;
+      transition: background 0.15s;
+      border-radius: 7px;
+      padding: 6px 0 6px 0;
     }
     .timeline-item:last-child { margin-bottom: 0;}
     .timeline-title {
@@ -108,26 +119,50 @@
       font-size: 1.08rem;
       color: #1a2233;
       margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
     }
     .timeline-date {
       font-size: 0.92rem;
       color: #888;
-      margin-bottom: 8px;
-    }
-    .timeline-desc {
-      font-size: 1rem;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
+      margin-left: 26px;
     }
     .timeline-circle {
       position: absolute;
       left: -34px;
-      top: 7px;
+      top: 13px;
       width: 17px;
       height: 17px;
       background: #fff;
       border: 3px solid #30a7d7;
       border-radius: 8px;
       z-index: 2;
+      transition: background 0.2s;
+    }
+    .timeline-item.open .timeline-circle {
+      background: #30a7d7;
+    }
+    .timeline-desc {
+      display: none;
+      font-size: 1rem;
+      margin: 4px 0 0 26px;
+      padding: 14px 18px 9px 8px;
+      background: #e6f4fa;
+      border-radius: 8px;
+      border-left: 3px solid #30a7d7;
+    }
+    .timeline-item.open .timeline-desc {
+      display: block;
+      animation: fadeIn 0.34s;
+    }
+    .timeline-item:hover {
+      background: #f3fbff;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(18px);}
+      to { opacity: 1; transform: translateY(0);}
     }
     @media (max-width: 800px) {
       .sidebar {
@@ -157,6 +192,9 @@
       <div><i class="fas fa-envelope"></i>
         <a href="mailto:davidmoncaleano13@gmail.com">davidmoncaleano13@gmail.com</a>
       </div>
+      <div class="phone"><i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/573218711593" target="_blank">+57 321 871 1593</a>
+      </div>
       <div><i class="fab fa-linkedin"></i>
         <a href="https://www.linkedin.com/in/german-david-moncaleano-velasquez-11539b137/" target="_blank">LinkedIn</a>
       </div>
@@ -182,9 +220,12 @@
     <section id="experiencia">
       <h1>Experiencia laboral</h1>
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-item" onclick="toggleItem(this)">
           <div class="timeline-circle"></div>
-          <div class="timeline-title">🏢 Teleperformance — Analista WFM Jr.</div>
+          <div class="timeline-title">
+            <i class="fas fa-briefcase"></i>
+            Teleperformance — Analista WFM Jr.
+          </div>
           <div class="timeline-date">Octubre 2017 – Noviembre 2022</div>
           <div class="timeline-desc">
             <strong>Qué hacía:</strong><br>
@@ -195,9 +236,12 @@
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item" onclick="toggleItem(this)">
           <div class="timeline-circle"></div>
-          <div class="timeline-title">🏢 Americas PBS — Analista de Planeación y Pronóstico WFM</div>
+          <div class="timeline-title">
+            <i class="fas fa-briefcase"></i>
+            Americas PBS — Analista de Planeación y Pronóstico WFM
+          </div>
           <div class="timeline-date">Agosto 2023 – Diciembre 2023</div>
           <div class="timeline-desc">
             <strong>Qué hacía:</strong><br>
@@ -208,9 +252,12 @@
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item" onclick="toggleItem(this)">
           <div class="timeline-circle"></div>
-          <div class="timeline-title">🏢 Aprende Institute — Analista Senior de Dimensionamiento</div>
+          <div class="timeline-title">
+            <i class="fas fa-briefcase"></i>
+            Aprende Institute — Analista Senior de Dimensionamiento
+          </div>
           <div class="timeline-date">Diciembre 2023 – Febrero 2024</div>
           <div class="timeline-desc">
             <strong>Qué hacía:</strong><br>
@@ -221,9 +268,12 @@
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item" onclick="toggleItem(this)">
           <div class="timeline-circle"></div>
-          <div class="timeline-title">🏢 Americas PBS — Especialista BI Cobranzas</div>
+          <div class="timeline-title">
+            <i class="fas fa-briefcase"></i>
+            Americas PBS — Especialista BI Cobranzas
+          </div>
           <div class="timeline-date">Marzo 2024 – Actualidad</div>
           <div class="timeline-desc">
             <strong>Qué hago:</strong><br>
@@ -250,5 +300,12 @@
       <p>(Espacio para destacar proyectos BI, automatizaciones, informes, dashboards y logros técnicos.)</p>
     </section>
   </div>
+
+  <script>
+    // Plegable experiencia laboral
+    function toggleItem(item) {
+      item.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
