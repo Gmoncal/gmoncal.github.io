@@ -179,6 +179,13 @@
     .herramientas i:hover {
       transform: scale(1.15);
     }
+    /* VS Code Icon */
+    .fa-vscode {
+      color: #23a9f2;
+      background: linear-gradient(45deg,#297ef2 25%, #23a9f2 70%);
+      border-radius: 4px;
+      padding: 2px 3px 2px 3px;
+    }
     @media (max-width: 800px) {
       .sidebar {
         position: static;
@@ -235,10 +242,11 @@
         <i class="fa-brands fa-python" title="Python" style="color:#3572A5;"></i>
         <i class="fa-solid fa-file-excel" title="Excel" style="color:#217346;"></i>
         <i class="fa-solid fa-code" title="VBA" style="color:#065f46;"></i>
+        <i class="fa-solid fa-code fa-vscode" title="VS Code"></i>
       </div>
     </section>
 
-    <!-- EXPERIENCIA LABORAL -->
+    <!-- EXPERIENCIA LABORAL (más actual primero) -->
     <section id="experiencia">
       <h1>Experiencia laboral</h1>
       <div class="timeline">
@@ -246,14 +254,31 @@
           <div class="timeline-circle"></div>
           <div class="timeline-title">
             <i class="fas fa-briefcase"></i>
-            Teleperformance — Analista WFM Jr.
+            Americas PBS — Especialista BI Cobranzas
           </div>
-          <div class="timeline-date">Octubre 2017 – Noviembre 2022</div>
+          <div class="timeline-date">Marzo 2024 – Actualidad</div>
+          <div class="timeline-desc">
+            <strong>Qué hago:</strong><br>
+            Asumo un rol estratégico como soporte directo para la dirección y jefatura operativa del área de cobranzas, brindando soluciones desde el análisis de datos y la automatización de procesos.<br>
+            Mi responsabilidad comienza desde la recepción y validación de las asignaciones entregadas por el cliente, las cuales transformo en insumos operativos listos para gestión (voicebot, contactabilidad telefónica outbound, etc.).<br>
+            Además, soy responsable de la generación de reportes, seguimiento de resultados, conexión del personal, control de calidad de insumos, soporte en facturación, proyecciones de ingresos y atención directa al cliente para garantizar integridad y utilidad de la información entregada.<br>
+            También lidero iniciativas de automatización que han permitido optimizar procesos operativos manuales, mejorar la eficiencia y liberar carga administrativa a la operación.<br>
+            <strong>Lo que me deja esta experiencia:</strong><br>
+            <em>(Agrega aquí tu reflexión personal)</em>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="toggleItem(this)">
+          <div class="timeline-circle"></div>
+          <div class="timeline-title">
+            <i class="fas fa-briefcase"></i>
+            Aprende Institute — Analista Senior de Dimensionamiento
+          </div>
+          <div class="timeline-date">Diciembre 2023 – Febrero 2024</div>
           <div class="timeline-desc">
             <strong>Qué hacía:</strong><br>
-            Encargado de asegurar la correcta adherencia de los recursos operativos a las curvas de llamadas, garantizando el cumplimiento de los niveles de servicio según los lineamientos establecidos.<br>
-            Realicé dimensionamientos para líneas inbound y outbound, desde la estimación de personal requerido hasta su distribución operativa.<br>
-            Mi rol no se limitaba a calcular cifras: también era responsable de hacer seguimiento constante al resultado, anticipando desvíos y tomando acciones para cumplir las metas del negocio.<br>
+            Fui convocado para apoyar la estructuración del área de WFM, enfocándome en el desarrollo de modelos de dimensionamiento y planificación operativa adaptados a un entorno educativo digital.<br>
+            El enfoque del área radicaba en anticipar la demanda laboral y los recursos requeridos. Este proceso implicaba el análisis de patrones históricos, tendencias y otros factores para proyectar la carga laboral futura.<br>
+            El objetivo principal era garantizar la disponibilidad adecuada de recursos (personal, tiempo, etc.) para gestionar eficazmente la carga de trabajo y ofrecer un servicio de alta calidad.<br>
             <strong>Lo que me dejó esta experiencia:</strong><br>
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
@@ -278,32 +303,15 @@
           <div class="timeline-circle"></div>
           <div class="timeline-title">
             <i class="fas fa-briefcase"></i>
-            Aprende Institute — Analista Senior de Dimensionamiento
+            Teleperformance — Analista WFM Jr.
           </div>
-          <div class="timeline-date">Diciembre 2023 – Febrero 2024</div>
+          <div class="timeline-date">Octubre 2017 – Noviembre 2022</div>
           <div class="timeline-desc">
             <strong>Qué hacía:</strong><br>
-            Fui convocado para apoyar la estructuración del área de WFM, enfocándome en el desarrollo de modelos de dimensionamiento y planificación operativa adaptados a un entorno educativo digital.<br>
-            El enfoque del área radicaba en anticipar la demanda laboral y los recursos requeridos. Este proceso implicaba el análisis de patrones históricos, tendencias y otros factores para proyectar la carga laboral futura.<br>
-            El objetivo principal era garantizar la disponibilidad adecuada de recursos (personal, tiempo, etc.) para gestionar eficazmente la carga de trabajo y ofrecer un servicio de alta calidad.<br>
+            Encargado de asegurar la correcta adherencia de los recursos operativos a las curvas de llamadas, garantizando el cumplimiento de los niveles de servicio según los lineamientos establecidos.<br>
+            Realicé dimensionamientos para líneas inbound y outbound, desde la estimación de personal requerido hasta su distribución operativa.<br>
+            Mi rol no se limitaba a calcular cifras: también era responsable de hacer seguimiento constante al resultado, anticipando desvíos y tomando acciones para cumplir las metas del negocio.<br>
             <strong>Lo que me dejó esta experiencia:</strong><br>
-            <em>(Agrega aquí tu reflexión personal)</em>
-          </div>
-        </div>
-        <div class="timeline-item" onclick="toggleItem(this)">
-          <div class="timeline-circle"></div>
-          <div class="timeline-title">
-            <i class="fas fa-briefcase"></i>
-            Americas PBS — Especialista BI Cobranzas
-          </div>
-          <div class="timeline-date">Marzo 2024 – Actualidad</div>
-          <div class="timeline-desc">
-            <strong>Qué hago:</strong><br>
-            Asumo un rol estratégico como soporte directo para la dirección y jefatura operativa del área de cobranzas, brindando soluciones desde el análisis de datos y la automatización de procesos.<br>
-            Mi responsabilidad comienza desde la recepción y validación de las asignaciones entregadas por el cliente, las cuales transformo en insumos operativos listos para gestión (voicebot, contactabilidad telefónica outbound, etc.).<br>
-            Además, soy responsable de la generación de reportes, seguimiento de resultados, conexión del personal, control de calidad de insumos, soporte en facturación, proyecciones de ingresos y atención directa al cliente para garantizar integridad y utilidad de la información entregada.<br>
-            También lidero iniciativas de automatización que han permitido optimizar procesos operativos manuales, mejorar la eficiencia y liberar carga administrativa a la operación.<br>
-            <strong>Lo que me deja esta experiencia:</strong><br>
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
