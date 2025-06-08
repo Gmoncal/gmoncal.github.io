@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hoja de Vida - German David Moncaleano</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -19,11 +20,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 32px 16px;
+      padding: 32px 16px 24px 16px;
       min-height: 100vh;
       position: fixed;
       left: 0;
       top: 0;
+      bottom: 0;
+      z-index: 10;
+      box-shadow: 2px 0 16px rgba(0,0,0,0.03);
     }
     .sidebar img {
       width: 120px;
@@ -35,100 +39,110 @@
     }
     .sidebar h2 {
       margin: 8px 0 4px 0;
-      font-size: 1.35rem;
+      font-size: 1.32rem;
       font-weight: 700;
       letter-spacing: 1px;
+      text-align: center;
     }
     .sidebar .bio {
       font-size: 0.97rem;
       color: #e2e2e2;
-      margin-bottom: 32px;
+      margin-bottom: 18px;
       text-align: center;
     }
-    .sidebar .menu-btn {
-      background: #263656;
-      color: #fff;
-      border: none;
-      margin: 6px 0;
-      padding: 10px 18px;
-      width: 90%;
-      border-radius: 8px;
+    .sidebar .contact-info {
+      margin-top: 18px;
+      width: 100%;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      text-align: left;
     }
-    .sidebar .menu-btn:hover, .sidebar .menu-btn.active {
-      background: #30a7d7;
-      color: #1a2233;
+    .sidebar .contact-info div {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #cfe8fc;
+    }
+    .sidebar .contact-info a {
+      color: #70d6ff;
+      text-decoration: none;
+      word-break: break-all;
     }
     .main-content {
       margin-left: 280px;
-      padding: 36px 8% 36px 8%;
+      padding: 44px 7% 44px 7%;
       width: 100%;
+      max-width: 1024px;
       min-height: 100vh;
       background: #f7f7f9;
-      transition: all 0.3s;
     }
-    .section { display: none; }
-    .section.active { display: block; }
-    /* Timeline styles */
+    section {
+      margin-bottom: 44px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #e2e2e2;
+    }
+    section:last-child { border-bottom: none; }
+    h1 {
+      color: #1a2233;
+      font-size: 2.0rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    h2 {
+      color: #277ab8;
+      font-size: 1.32rem;
+      margin-top: 14px;
+      margin-bottom: 7px;
+    }
     .timeline {
-      position: relative;
-      margin: 24px 0 0 24px;
-      padding-left: 28px;
+      margin-left: 12px;
       border-left: 3px solid #30a7d7;
-      max-width: 680px;
+      padding-left: 22px;
     }
     .timeline-item {
-      margin-bottom: 36px;
-      cursor: pointer;
+      margin-bottom: 38px;
       position: relative;
     }
-    .timeline-item .circle {
-      position: absolute;
-      left: -38px;
-      top: 5px;
-      width: 16px;
-      height: 16px;
-      background: #fff;
-      border: 3px solid #30a7d7;
-      border-radius: 8px;
-      z-index: 2;
-      transition: background 0.2s;
-    }
-    .timeline-item.open .circle {
-      background: #30a7d7;
-    }
+    .timeline-item:last-child { margin-bottom: 0;}
     .timeline-title {
       font-weight: bold;
       font-size: 1.08rem;
+      color: #1a2233;
       margin-bottom: 3px;
     }
     .timeline-date {
       font-size: 0.92rem;
       color: #888;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
     .timeline-desc {
-      display: none;
-      background: #e6f4fa;
-      padding: 16px 16px 12px 16px;
+      font-size: 1rem;
+      margin-bottom: 7px;
+    }
+    .timeline-circle {
+      position: absolute;
+      left: -34px;
+      top: 7px;
+      width: 17px;
+      height: 17px;
+      background: #fff;
+      border: 3px solid #30a7d7;
       border-radius: 8px;
-      margin-top: 7px;
-    }
-    .timeline-item.open .timeline-desc {
-      display: block;
-      animation: fadeIn 0.4s;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px);}
-      to { opacity: 1; transform: translateY(0);}
+      z-index: 2;
     }
     @media (max-width: 800px) {
-      .sidebar { width: 100vw; min-height: auto; flex-direction: row; position: relative; padding: 16px 2vw;}
-      .sidebar img { width: 70px; height: 70px; border-radius: 35px;}
-      .main-content { margin-left: 0; padding: 24px 4vw; }
+      .sidebar {
+        position: static;
+        width: 100vw;
+        min-height: auto;
+        flex-direction: row;
+        padding: 16px 2vw;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .sidebar img {
+        width: 70px; height: 70px; border-radius: 35px;
+      }
+      .main-content { margin-left: 0; padding: 18px 2vw; }
     }
   </style>
 </head>
@@ -139,17 +153,22 @@
     <div class="bio">
       Especialista en BI y WFM | Power BI, SQL, Python, Excel | Automatización y análisis estratégico de datos
     </div>
-    <button class="menu-btn active" onclick="showSection('sobre-mi')">Sobre mí</button>
-    <button class="menu-btn" onclick="showSection('experiencia')">Experiencia laboral</button>
-    <button class="menu-btn" onclick="showSection('ruta-aprendizaje')">Ruta de aprendizaje</button>
-    <button class="menu-btn" onclick="showSection('proyectos')">Proyectos</button>
-    <button class="menu-btn" onclick="showSection('opiniones')">Opiniones</button>
-    <button class="menu-btn" onclick="showSection('contacto')">Contacto</button>
+    <div class="contact-info">
+      <div><i class="fas fa-envelope"></i>
+        <a href="mailto:davidmoncaleano13@gmail.com">davidmoncaleano13@gmail.com</a>
+      </div>
+      <div><i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/german-david-moncaleano-velasquez-11539b137/" target="_blank">LinkedIn</a>
+      </div>
+      <div><i class="fas fa-map-marker-alt"></i>
+        Bogotá, Colombia
+      </div>
+    </div>
   </div>
 
   <div class="main-content">
     <!-- SOBRE MÍ -->
-    <div class="section active" id="sobre-mi">
+    <section id="sobre-mi">
       <h1>Sobre mí</h1>
       <p>
         Soy German David Moncaleano, un apasionado por los datos, la eficiencia y el aprendizaje constante.<br>
@@ -157,14 +176,14 @@
         Me he formado de manera empírica, lo que me ha enseñado a resolver problemas desde lo práctico, con herramientas como Power BI, SQL Server, Python, Excel y VBA. No solo aprendo rápido, sino que disfruto compartir lo que aprendo para que otros también crezcan.<br>
         Estoy entregado al crecimiento profesional, siempre buscando aprender algo nuevo y aportar más valor. Mi motivación no es cumplir tareas, sino construir soluciones que realmente hagan la diferencia.
       </p>
-    </div>
+    </section>
 
-    <!-- EXPERIENCIA LABORAL (TIMELINE) -->
-    <div class="section" id="experiencia">
+    <!-- EXPERIENCIA LABORAL -->
+    <section id="experiencia">
       <h1>Experiencia laboral</h1>
       <div class="timeline">
-        <div class="timeline-item" onclick="toggleItem(this)">
-          <div class="circle"></div>
+        <div class="timeline-item">
+          <div class="timeline-circle"></div>
           <div class="timeline-title">🏢 Teleperformance — Analista WFM Jr.</div>
           <div class="timeline-date">Octubre 2017 – Noviembre 2022</div>
           <div class="timeline-desc">
@@ -172,14 +191,12 @@
             Encargado de asegurar la correcta adherencia de los recursos operativos a las curvas de llamadas, garantizando el cumplimiento de los niveles de servicio según los lineamientos establecidos.<br>
             Realicé dimensionamientos para líneas inbound y outbound, desde la estimación de personal requerido hasta su distribución operativa.<br>
             Mi rol no se limitaba a calcular cifras: también era responsable de hacer seguimiento constante al resultado, anticipando desvíos y tomando acciones para cumplir las metas del negocio.<br>
-            <br>
             <strong>Lo que me dejó esta experiencia:</strong><br>
-            <!-- Aquí puedes agregar tu reflexión personal luego -->
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
-        <div class="timeline-item" onclick="toggleItem(this)">
-          <div class="circle"></div>
+        <div class="timeline-item">
+          <div class="timeline-circle"></div>
           <div class="timeline-title">🏢 Americas PBS — Analista de Planeación y Pronóstico WFM</div>
           <div class="timeline-date">Agosto 2023 – Diciembre 2023</div>
           <div class="timeline-desc">
@@ -187,13 +204,12 @@
             Responsable de los procesos de dimensionamiento y planificación operativa para múltiples canales de atención, incluyendo voz inbound y outbound, chats, correos y atención presencial.<br>
             El rol exigía un enfoque más especializado en proyecciones y cálculo de recursos, considerando particularidades operativas por canal y modelo de servicio.<br>
             Diseñaba modelos de pronóstico y estimación de carga para servicios tradicionales y digitales, adaptando estrategias de distribución del personal según el comportamiento esperado.<br>
-            <br>
             <strong>Lo que me dejó esta experiencia:</strong><br>
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
-        <div class="timeline-item" onclick="toggleItem(this)">
-          <div class="circle"></div>
+        <div class="timeline-item">
+          <div class="timeline-circle"></div>
           <div class="timeline-title">🏢 Aprende Institute — Analista Senior de Dimensionamiento</div>
           <div class="timeline-date">Diciembre 2023 – Febrero 2024</div>
           <div class="timeline-desc">
@@ -201,13 +217,12 @@
             Fui convocado para apoyar la estructuración del área de WFM, enfocándome en el desarrollo de modelos de dimensionamiento y planificación operativa adaptados a un entorno educativo digital.<br>
             El enfoque del área radicaba en anticipar la demanda laboral y los recursos requeridos. Este proceso implicaba el análisis de patrones históricos, tendencias y otros factores para proyectar la carga laboral futura.<br>
             El objetivo principal era garantizar la disponibilidad adecuada de recursos (personal, tiempo, etc.) para gestionar eficazmente la carga de trabajo y ofrecer un servicio de alta calidad.<br>
-            <br>
             <strong>Lo que me dejó esta experiencia:</strong><br>
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
-        <div class="timeline-item" onclick="toggleItem(this)">
-          <div class="circle"></div>
+        <div class="timeline-item">
+          <div class="timeline-circle"></div>
           <div class="timeline-title">🏢 Americas PBS — Especialista BI Cobranzas</div>
           <div class="timeline-date">Marzo 2024 – Actualidad</div>
           <div class="timeline-desc">
@@ -216,51 +231,24 @@
             Mi responsabilidad comienza desde la recepción y validación de las asignaciones entregadas por el cliente, las cuales transformo en insumos operativos listos para gestión (voicebot, contactabilidad telefónica outbound, etc.).<br>
             Además, soy responsable de la generación de reportes, seguimiento de resultados, conexión del personal, control de calidad de insumos, soporte en facturación, proyecciones de ingresos y atención directa al cliente para garantizar integridad y utilidad de la información entregada.<br>
             También lidero iniciativas de automatización que han permitido optimizar procesos operativos manuales, mejorar la eficiencia y liberar carga administrativa a la operación.<br>
-            <br>
             <strong>Lo que me deja esta experiencia:</strong><br>
             <em>(Agrega aquí tu reflexión personal)</em>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Las otras secciones tienen solo títulos, luego se pueden editar/agregar -->
-    <div class="section" id="ruta-aprendizaje">
+    <!-- RUTA DE APRENDIZAJE -->
+    <section id="ruta-aprendizaje">
       <h1>Ruta de aprendizaje</h1>
-      <p>(Aquí podrás contar tu evolución, cursos, certificaciones, cambios de enfoque, etc.)</p>
-    </div>
-    <div class="section" id="proyectos">
+      <p>(Aquí podrás contar tu evolución: cursos, certificaciones, proyectos de formación y cambios de enfoque.)</p>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos">
       <h1>Proyectos</h1>
-      <p>(Espacio para destacar proyectos BI, automatizaciones, informes, etc.)</p>
-    </div>
-    <div class="section" id="opiniones">
-      <h1>Opiniones / Blog</h1>
-      <p>(Aquí puedes escribir reflexiones, aprendizajes, casos de éxito o retos personales)</p>
-    </div>
-    <div class="section" id="contacto">
-      <h1>Contacto</h1>
-      <p>Puedes escribirme a: <a href="mailto:davidmoncaleano13@gmail.com">davidmoncaleano13@gmail.com</a></p>
-      <p>O en <a href="https://www.linkedin.com/in/german-david-moncaleano-velasquez-11539b137/" target="_blank">LinkedIn</a></p>
-    </div>
+      <p>(Espacio para destacar proyectos BI, automatizaciones, informes, dashboards y logros técnicos.)</p>
+    </section>
   </div>
-
-  <script>
-    function showSection(id) {
-      // Quita activo a todos los botones
-      document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-      // Agrega activo al botón clickeado
-      const idx = ['sobre-mi','experiencia','ruta-aprendizaje','proyectos','opiniones','contacto'].indexOf(id);
-      if (idx !== -1) document.querySelectorAll('.menu-btn')[idx].classList.add('active');
-
-      // Muestra solo la sección elegida
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      window.scrollTo(0,0);
-    }
-    // Timeline interactivo
-    function toggleItem(item) {
-      item.classList.toggle('open');
-    }
-  </script>
 </body>
 </html>
