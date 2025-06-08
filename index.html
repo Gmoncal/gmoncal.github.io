@@ -164,6 +164,21 @@
       from { opacity: 0; transform: translateY(18px);}
       to { opacity: 1; transform: translateY(0);}
     }
+    /* Iconos herramientas */
+    .herramientas {
+      display: flex;
+      gap: 22px;
+      margin-top: 12px;
+      font-size: 2.1rem;
+      align-items: center;
+    }
+    .herramientas i {
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .herramientas i:hover {
+      transform: scale(1.15);
+    }
     @media (max-width: 800px) {
       .sidebar {
         position: static;
@@ -209,11 +224,18 @@
     <section id="sobre-mi">
       <h1>Sobre mí</h1>
       <p>
-        Soy German David Moncaleano, un apasionado por los datos, la eficiencia y el aprendizaje constante.<br>
+        Apasionado por los datos, la eficiencia y el aprendizaje constante.<br>
         Más que un empleado, me considero una mano derecha para la organización: alguien comprometido con entender a fondo cómo funciona una operación, proponer mejoras reales y convertir los datos en decisiones inteligentes.<br>
         Me he formado de manera empírica, lo que me ha enseñado a resolver problemas desde lo práctico, con herramientas como Power BI, SQL Server, Python, Excel y VBA. No solo aprendo rápido, sino que disfruto compartir lo que aprendo para que otros también crezcan.<br>
         Estoy entregado al crecimiento profesional, siempre buscando aprender algo nuevo y aportar más valor. Mi motivación no es cumplir tareas, sino construir soluciones que realmente hagan la diferencia.
       </p>
+      <div class="herramientas">
+        <i class="fa-solid fa-chart-column" title="Power BI" style="color:#f7b602;"></i>
+        <i class="fa-solid fa-database" title="SQL Server" style="color:#b33a26;"></i>
+        <i class="fa-brands fa-python" title="Python" style="color:#3572A5;"></i>
+        <i class="fa-solid fa-file-excel" title="Excel" style="color:#217346;"></i>
+        <i class="fa-solid fa-code" title="VBA" style="color:#065f46;"></i>
+      </div>
     </section>
 
     <!-- EXPERIENCIA LABORAL -->
